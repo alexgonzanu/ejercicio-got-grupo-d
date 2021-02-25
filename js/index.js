@@ -23,8 +23,8 @@ class Personajes {
 class Rey extends Personajes {
   añosReinado;
 
-  constructor(years) {
-    super();
+  constructor(nombre, family, age, status, years) {
+    super(nombre, family, age, status);
     this.añosReinado = years;
   }
 
@@ -35,24 +35,32 @@ class Rey extends Personajes {
 
 class Luchador extends Personajes {
   arma;
-  destreza;
+  #destreza;
 
-  constructor(weapon, skill) {
-    super();
+  constructor(nombre, family, age, status, weapon, skill) {
+    super(nombre, family, age, status);
     this.arma = weapon;
-    this.destreza = skill;
+    this.#destreza = skill;
   }
 
   comunicar() {
     return "Primero pego y luego pregunto";
+  }
+
+  set destreza(numero) {
+    if (numero < 1) {
+      numero = 1;
+    } else if (numero > 10) {
+      numero = 10;
+    }
   }
 }
 
 class Asesor extends Personajes {
   personajeAlQueAsesora;
 
-  constructor(adviser) {
-    super();
+  constructor(nombre, family, age, status, adviser) {
+    super(nombre, family, age, status);
     this.personajeAlQueAsesora = adviser;
   }
 
@@ -63,17 +71,32 @@ class Asesor extends Personajes {
 
 class Escudero extends Personajes {
   personajeAlQueSirve;
-  gradoPelotismo;
+  #gradoPelotismo;
 
-  constructor(characterServes, pelota) {
-    super();
+  constructor(nombre, family, age, status, characterServes, pelota) {
+    super(nombre, family, age, status);
     this.personajeAlQueSirve = characterServes;
-    this.gradoPelotismo = pelota;
+    this.#gradoPelotismo = pelota;
+  }
+
+  set pelotismo(numero) {
+    if (numero < 1) {
+      numero = 1;
+    } else if (numero > 10) {
+      numero = 10;
+    }
   }
 
   comunicar() {
     return "Soy un loser";
   }
 }
+
+const rey = new Rey("Joffrey Baratheon", "Baratheon", 20, "vivo", 5);
+const luchador = new Luchador("Jamie Lannister", "Lannister", 32, "vivo", "lanza", 10);
+const luchadora = new Luchador("Daenerys Targaryen", "Targaryen", 18, "vivo", "espada", 6);
+const asesor = new Asesor("Tyrion Lannister", "Lannister", 50, "vivo", `${luchadora.nombre}`);
+const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchadora.nombre}`, 8);
+
 
 
