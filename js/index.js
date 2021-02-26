@@ -1,3 +1,4 @@
+// Función 1
 class Personajes {
   nombre;
   familia;
@@ -35,12 +36,12 @@ class Rey extends Personajes {
 
 class Luchador extends Personajes {
   arma;
-  destreza;
+  destrezaLuchador;
 
   constructor(nombre, family, age, status, weapon, skill) {
     super(nombre, family, age, status);
     this.arma = weapon;
-    this.destreza = skill;
+    this.destrezaLuchador = skill;
   }
 
   comunicar() {
@@ -92,11 +93,14 @@ class Escudero extends Personajes {
   }
 }
 
+// Función 2
 const rey = new Rey("Joffrey Baratheon", "Baratheon", 20, "vivo", 5);
 const luchador = new Luchador("Jamie Lannister", "Lannister", 32, "vivo", "lanza", 10);
 const luchadora = new Luchador("Daenerys Targaryen", "Targaryen", 18, "vivo", "espada", 6);
 const asesor = new Asesor("Tyrion Lannister", "Lannister", 50, "vivo", `${luchadora.nombre}`);
 const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchadora.nombre}`, 8);
 
+//Función 3
+const personajes = [rey, luchador, luchadora, asesor, escudero];
 
 
