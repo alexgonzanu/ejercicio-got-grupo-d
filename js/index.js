@@ -16,7 +16,7 @@ class Personajes {
   }
 
   morir(estadoPersonaje) {
-    return estadoPersonaje === "vivo" ? "muerto" : "vivo";
+    return estadoPersonaje === "muerto";
   }
 }
 
@@ -35,12 +35,12 @@ class Rey extends Personajes {
 
 class Luchador extends Personajes {
   arma;
-  #destreza;
+  destreza;
 
   constructor(nombre, family, age, status, weapon, skill) {
     super(nombre, family, age, status);
     this.arma = weapon;
-    this.#destreza = skill;
+    this.destreza = skill;
   }
 
   comunicar() {
@@ -71,12 +71,12 @@ class Asesor extends Personajes {
 
 class Escudero extends Personajes {
   personajeAlQueSirve;
-  #gradoPelotismo;
+  gradoPelotismo;
 
   constructor(nombre, family, age, status, characterServes, pelota) {
     super(nombre, family, age, status);
     this.personajeAlQueSirve = characterServes;
-    this.#gradoPelotismo = pelota;
+    this.gradoPelotismo = pelota;
   }
 
   set pelotismo(numero) {
