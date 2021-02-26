@@ -3,7 +3,7 @@ class Personajes {
   nombre;
   familia;
   edad;
-  estado = "vivo";
+  estado;
   static serie = "Juego de tronos";
 
   constructor(name, family, age, status) {
@@ -17,8 +17,8 @@ class Personajes {
     return "";
   }
 
-  morir(estadoPersonaje) {
-    return estadoPersonaje === "muerto";
+  morir() {
+    return this.estado = "muerto";
   }
 }
 
@@ -110,5 +110,12 @@ const comunicado = personajes.map(personaje => personaje.comunicar()).filter((pe
 
 //Función 5
 console.log(Personajes.serie);
+
+//Función 6
+console.log(comunicado);
+
+// Función 7
+luchador.morir();
+asesor.morir();
 
 
