@@ -4,6 +4,7 @@ class Personajes {
   familia;
   edad;
   estado = "vivo";
+  static serie = "Juego de tronos";
 
   constructor(name, family, age, status) {
     this.nombre = name;
@@ -102,5 +103,9 @@ const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchad
 
 //Función 3
 const personajes = [rey, luchador, luchadora, asesor, escudero];
+console.log(personajes);
 
+
+//Función 5
+console.log(Personajes.serie);
 
