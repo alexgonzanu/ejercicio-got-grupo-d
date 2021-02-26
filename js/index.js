@@ -4,6 +4,7 @@ class Personajes {
   familia;
   edad;
   estado = "vivo";
+  static serie = "Juego de tronos";
 
   constructor(name, family, age, status) {
     this.nombre = name;
@@ -102,6 +103,12 @@ const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchad
 
 // Función 3
 const personajes = [rey, luchador, luchadora, asesor, escudero];
+console.log(personajes);
 
 // Función 4
 const comunicado = personajes.map(personaje => personaje.comunicar()).filter((personaje, i, personajes) => personajes.indexOf(personaje) === i)
+
+//Función 5
+console.log(Personajes.serie);
+
+
