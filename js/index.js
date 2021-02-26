@@ -100,7 +100,8 @@ const luchadora = new Luchador("Daenerys Targaryen", "Targaryen", 18, "vivo", "e
 const asesor = new Asesor("Tyrion Lannister", "Lannister", 50, "vivo", `${luchadora.nombre}`);
 const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchadora.nombre}`, 8);
 
-//Función 3
+// Función 3
 const personajes = [rey, luchador, luchadora, asesor, escudero];
 
-
+// Función 4
+const comunicado = personajes.map(personaje => personaje.comunicar()).filter((personaje, i, personajes) => personajes.indexOf(personaje) === i)
