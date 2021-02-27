@@ -98,8 +98,8 @@ class Escudero extends Personajes {
 const rey = new Rey("Joffrey Baratheon", "Baratheon", 20, "vivo", 5);
 const luchador = new Luchador("Jamie Lannister", "Lannister", 32, "vivo", "lanza", 10);
 const luchadora = new Luchador("Daenerys Targaryen", "Targaryen", 18, "vivo", "espada", 6);
-const asesor = new Asesor("Tyrion Lannister", "Lannister", 50, "vivo", `${luchadora.nombre}`);
-const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", `${luchadora.nombre}`, 8);
+const asesor = new Asesor("Tyrion Lannister", "Lannister", 50, "vivo", luchadora);
+const escudero = new Escudero("Bronn", "No tiene familia", 21, "vivo", luchador, 8);
 
 // Función 3
 const personajes = [rey, luchador, luchadora, asesor, escudero];
@@ -110,12 +110,19 @@ const comunicado = personajes.map(personaje => personaje.comunicar()).filter((pe
 
 //Función 5
 console.log(Personajes.serie);
-
 //Función 6
 console.log(comunicado);
-
 // Función 7
 luchador.morir();
 asesor.morir();
 
+//Funcion 8
+const resumenPersonajes = elementos =>
+  elementos.map(personaje => personaje.constructor.name)
+    .filter((tipo, i, tipos) => tipos.indexOf(tipo) === i)
+    .map(tipo => ({
+      tipo,
+      personaje: elementos.filter(equipo => equipo.constructor.name === tipo)
+    }));
 
+console.log(resumenPersonajes(personajes));
